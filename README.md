@@ -2,14 +2,17 @@
 
 This project demonstrates how to control an onboard LED connected to pin **D13 (PA5)** on the STM32F303RE Nucleo board using **UART serial communication**. Through a PuTTY serial terminal, specific string commands are sent from a computer to the microcontroller. Based on the received command, the LED is either turned ON, turned OFF, or left unchanged.
 
+---
+
 ## Overview
 
 - **Board:** STM32F303RE Nucleo
 - **Communication:** UART2 over USB (via PuTTY)
 - **Interface:** Serial terminal input (ASCII command strings)
 - **Functionality:** Interprets user input to control onboard LED
-- **Baud Rate:** 38400
 - **LED Pin:** PA5 (labeled as D13 on the Nucleo board)
+
+---
 
 ## How It Works
 
@@ -23,6 +26,8 @@ The microcontroller continuously listens for input from the UART2 peripheral usi
 
 Internally, an interrupt service routine appends received characters to a buffer until the carriage return is detected (`\r`), at which point the command is parsed and executed.
 
+---
+
 ## Serial Communication Setup
 
 To communicate with the STM32F303RE board:
@@ -34,6 +39,8 @@ To communicate with the STM32F303RE board:
    - **Serial line:** (e.g., `COM7`)
    - **Speed (baud):** `38400`
 4. Open the terminal and send the command strings.
+
+---
 
 ## Demo Video 🎥
 
@@ -47,6 +54,8 @@ To communicate with the STM32F303RE board:
 3. Then types `LED OFF` – LED turns **off**.
 4. Finally types `LED ON` again – LED turns **on** again to confirm toggle functionality.
 
+---
+
 ## Learning Highlights
 
 During this project, I became comfortable with:
@@ -55,6 +64,4 @@ During this project, I became comfortable with:
 - Debugging UART behavior via the **Live Expressions** tab in STM32CubeIDE, which allowed real-time tracking of character reception, buffer content, and LED state during runtime.
 - Creating a clean `main.c` with properly encapsulated logic in the `HAL_UART_RxCpltCallback()`.
 
-## License
-
-This project is released under the [MIT License](LICENSE).
+---
